@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.2.1'
+gem 'rails', '~> 7.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
@@ -29,8 +29,18 @@ gem 'bootsnap', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
-# 環境変数の設定
-gem 'dotenv-rails'
+gem 'dotenv-rails' # 環境変数の設定
+
+# ユーザー認証
+gem 'devise'
+gem 'devise_token_auth'
+
+# SNS認証など
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -42,10 +52,8 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   # gem "rubocop-rails-omakase", require: false
 
-  # デバッグ用
-  gem 'pry-rails'
-  # テーブルの情報をmodelに書き出してくれる
-  gem 'annotate'
+  gem 'annotate' # テーブルの情報をmodelに書き出してくれる
+  gem 'pry-rails' # デバッグ用
 end
 
 group :development do
