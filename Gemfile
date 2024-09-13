@@ -41,6 +41,11 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   # gem "rubocop-rails-omakase", require: false
+
+  # デバッグ用
+  gem 'pry-rails'
+  # テーブルの情報をmodelに書き出してくれる
+  gem 'annotate'
 end
 
 group :development do
