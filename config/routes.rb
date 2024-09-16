@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
     resources :spend_category, only: %i[index create destroy update]
     mount_devise_token_auth_for 'User', at: 'auth'
+    get 'test/index'
   end
 end
