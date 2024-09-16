@@ -54,9 +54,16 @@ group :development, :test do
 
   gem 'annotate' # テーブルの情報をmodelに書き出してくれる
   gem 'pry-rails' # デバッグ用
+
+  gem 'factory_bot_rails' # テストデータ作成
+  gem 'faker' # テストデータのダミー値を生成する
+  gem 'rspec-rails' # テストgem
 end
 
 group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
 end
