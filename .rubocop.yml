@@ -2,11 +2,17 @@ inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-rails
+  - rubocop-factory_bot
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
 Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
 
 Metrics/BlockLength:
