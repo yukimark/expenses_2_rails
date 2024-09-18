@@ -58,6 +58,11 @@ group :development, :test do
   gem 'factory_bot_rails' # テストデータ作成
   gem 'faker' # テストデータのダミー値を生成する
   gem 'rspec-rails' # テストgem
+
+  # apiドキュメント
+  gem 'rswag-api'
+  gem 'rswag-specs'
+  gem 'rswag-ui'
 end
 
 group :development do
