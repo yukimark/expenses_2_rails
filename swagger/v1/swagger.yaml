@@ -1,0 +1,29 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/test/index":
+    get:
+      summary: テストというmessageが返ってくる
+      responses:
+        '200':
+          description: 成功
+          content:
+            appilication/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                required:
+                - status
+                - message
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
