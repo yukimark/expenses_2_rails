@@ -4,6 +4,44 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/auth":
+    post:
+      summary: ユーザー作成
+      parameters: []
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: hash
+                required:
+                - status
+                - data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+            examples:
+              Example User Profile:
+                summary: An example of the request body
+                value:
+                  email: test@gmail.com
+                  password: password
   "/api/test/index":
     get:
       summary: テストというmessageが返ってくる
