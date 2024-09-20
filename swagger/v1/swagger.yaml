@@ -4,6 +4,142 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/auth":
+    post:
+      summary: ユーザー作成
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                      provider:
+                        type: string
+                        example: email
+                      uid:
+                        type: string
+                        example: test@gmail.com
+                      allow_password_change:
+                        type: boolean
+                        example: false
+                      name:
+                        type: string
+                        nullable: true
+                        example:
+                      email:
+                        type: string
+                        example: test@gmail.com
+                      created_at:
+                        type: string
+                        format: date-time
+                        example: '2024-09-20T10:29:35.440Z'
+                      updated_at:
+                        type: string
+                        format: date-time
+                        example: '2024-09-20T10:29:35.497Z'
+                    required:
+                    - id
+                    - provider
+                    - uid
+                    - email
+                    - created_at
+                    - updated_at
+                required:
+                - status
+                - data
+        '422':
+          description: Unprocessable Content(メールアドレスが所定の形式を満たしていないとき)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        nullable: true
+                        example:
+                      provider:
+                        type: string
+                        example: email
+                      uid:
+                        type: string
+                        nullable: true
+                        example: ''
+                      allow_password_change:
+                        type: boolean
+                        example: false
+                      name:
+                        type: string
+                        nullable: true
+                        example:
+                      email:
+                        type: string
+                        example: test
+                      created_at:
+                        type: string
+                        nullable: true
+                        example:
+                      updated_at:
+                        type: string
+                        nullable: true
+                        example:
+                    required:
+                    - email
+                    - provider
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        items:
+                          type: string
+                          example: is not an email
+                      full_messages:
+                        type: array
+                        items:
+                          type: string
+                          example: Email is not an email
+                required:
+                - status
+                - data
+                - errors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+            examples:
+              Example User Profile:
+                summary: An example of the request body
+                value:
+                  email: test@gmail.com
+                  password: password
   "/api/test/index":
     get:
       summary: テストというmessageが返ってくる
