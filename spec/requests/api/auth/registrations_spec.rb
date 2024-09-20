@@ -88,6 +88,16 @@ RSpec.describe 'api/auth/registrations', type: :request do
 
   # rspec
   describe 'post /api/auth' do
-    
+    let(:params) { { email: 'test@gmail.com', password: 'password' } }
+
+    context '正しい情報を入力するとき' do
+      before do
+        post '/api/auth', params:
+      end
+
+      it 'レスポンスのステータスが200を返す' do
+        expect(response.status).to eq(200)
+      end
+    end
   end
 end
